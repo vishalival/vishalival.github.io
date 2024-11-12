@@ -2,6 +2,17 @@ body {
     margin: 0;
 }
 
+
+.btn-outline-primary,  .btn-outline-primary:active, .btn-outline-primary:visited {
+    border-color: #7C238C !important;
+    color: #7C238C !important;
+}
+
+.btn-outline-primary:hover {
+    color: white !important;
+    background-color: #7C238C !important;
+} 
+
 /* ---- particles.js container ---- */
 
 #particles-js canvas {
@@ -413,7 +424,7 @@ code {
     height: 2px;
     bottom: 0;
     left: 0;
-    background-color: var(--bs-red);
+    background-color: #7C238C;
     visibility: hidden;
     transform: scaleX(0);
     transition: all 0.3s ease-in-out 0s;
@@ -425,7 +436,7 @@ code {
 }
 
 .spanActive {
-    color: var(--bs-red);
+    color: #7C238C;
 }
 
 .navbar {
