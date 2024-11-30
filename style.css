@@ -2,10 +2,14 @@ body {
     background-color: #230E0E;
     margin: 0;
     color: #ffffff; 
-    font-family: "Young Serif", serif; 
+/*     font-family: "Young Serif", serif;  */
     font-style: normal; 
     font-weight: 10; /* Regular weight */
     line-height: normal;
+}
+
+.main-container {
+    font-family: "Young Serif", serif; 
 }
 
 .inter {
