@@ -1,10 +1,14 @@
 body {
     margin: 0;
+    /* font-family: "Roboto", sans-serif;
+    font-weight: 300;
+    font-style: normal; */
+
+    font-family: "Parkinsans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
 }
-
-
-
-
 
 .btn-outline-primary,  .btn-outline-primary:active, .btn-outline-primary:visited {
     border-color: #7C238C !important;
@@ -55,7 +59,7 @@ body {
     text-indent: 4px;
     line-height: 14px;
     padding-bottom: 2px;
-    /* font-family: Helvetica, Arial, sans-serif; */
+    font-family: sans-serif;
     font-weight: bold;
 }
 
