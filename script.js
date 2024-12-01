@@ -104,7 +104,7 @@ const projects = [
         text: "Large-scale programming project using three models to evaluate safety of aviation systems through (1) speech attribute analysis, (2) natural language processing and speech-to-text, and (3) intent inference analysis. Primary goal is to develop a fully synced model able to detect aviation system safety issues through ATCO audios. ",
         text2: "Model simulation showing moments of ATCO influence and impact of three different models. Key speech attribute patterns are demonstrated with LiveATC audios, including a bimodal distribution of Spectral Flatness, Onset Rate, and Onset Strength and clear distinguishing patterns across different sectors. An IsolationForest Outlier classification model is developed to classify off-nominal air traffic controllers’ utterances.",
         badges: ["Python", "Pandas", "NumPy", "Matplotlib", "Plotly", "Speech-to-Text (STT)"],
-        buttonText: "Project",
+        buttonText: "Publication",
         buttonDisabled: false,
         buttonLink: "https://doi.org/10.2514/6.2024-3942",
         columnClass: "col-lg-6",
@@ -116,7 +116,7 @@ const projects = [
         text: "Developed model for classifying aviation-induced cloud 'contrails,' using NASA GOES-16 satellite imagery. Leveraged state-of-the-art semantic segmentation neural networks built on a ResNet architecture for accurate detection. Optimized model performance and training efficiency by utilizing high-performance computing technologies and parallel processing frameworks, including Dask, to handle large-scale data processing and resource-intensive computations effectively.",
         text2: "Low F1 score and loss, high IOU (Intersection Over Union) score. Model developed a framework for large-scale contrail research funded by the ARPA-E (Advanced Research Projects Agency–Energy).",
         badges: ["Python", "Pandas", "NumPy", "Matplotlib", "Plotly", "Kubernetes", "ResNet", "Dask"],
-        buttonText: "Project",
+        buttonText: "Project Not Publicly Accessible",
         buttonDisabled: true,
         buttonLink: "",
         columnClass: "col-lg-6",
@@ -128,7 +128,7 @@ const projects = [
         text: "Developed a system for distributed analytics of aviation-induced noise impacts, focusing on AIRNOISE and UNIT data outputs. Leveraged high-performance computing frameworks and advanced processing techniques to handle large-scale noise datasets efficiently. Integrated WebAPI for streamlined access and NASA WorldWind for geospatial visualization, enabling interactive exploration of noise patterns.",
         text2: "Enhanced data processing and visualization for noise impact assessments. Created a scalable framework for integrating future machine learning-based noise abatement models. Employed the parallel processing capabilities of Dask to optimize CPU usage of NASA models, achieving a 58% reduction in computing time within NASA’s High Performance Computing environment.",
         badges: ["Python", "Dask", "Matplotlib", "FASTAPI", "Parquet", "JSON"],
-        buttonText: "Project",
+        buttonText: "Project Not Publicly Accessible",
         buttonDisabled: true,
         buttonLink: "",
         columnClass: "col-lg-6",
@@ -158,6 +158,18 @@ const projects = [
         columnClass: "col-lg-4",
         categories: ["Data Science/ML", "API integration", "predictive modeling", "economic analysis", "statistical analysis", "sustainability assessment"]
     },
+    {
+      imgSrc: "images/gmo.jpeg",
+      title: "Enhancing Nutrition Through GMO Policy in Eastern Africa",
+      text: "Evaluation of the potential nutritional benefits of introducing genetically-modified organisms (GMOs) and fortified foods in Eastern African countries, specifically Uganda and Tanzania. By analyzing dietary deficiencies and simulating policy scenarios, the research highlights the inefficiencies in current GMO-banned systems and proposes GMO-positive strategies to maximize nutritional outcomes.",
+      text2: "Simulation analysis suggested that trade could effectively address nutritional deficiencies between neighboring countries. Simulating a trade policy between Uganda and Tanzania led to significant improvements: Uganda’s population meeting protein requirements increased from 58.29% to 87.71%, and Tanzania’s population meeting Vitamin C intake rose from 23.18% to 86.09%",
+      badges: ["Python", "Pandas", "Matplotlib", "NumPy", "Plotly"],
+      buttonText: "Project",
+      buttonDisabled: false,
+      buttonLink: "https://github.com/vishalival/eep153-norman-borlaug",
+      columnClass: "col-lg-4",
+      categories: ["Data visualization", "trade policy simulation", "nutritional analysis", "climate impact assessment", "statistical modeling"]
+  },
     {
         imgSrc: "images/rwanda.jpeg",
         title: "Quantifying the Impacts of the 1994 Rwandan Genocide: Migration and Gender Disparities",
@@ -222,18 +234,7 @@ const projects = [
         categories: ["Software engineering", "Game Design", "OOP"]
     },
 
-    {
-      imgSrc: "images/gmo.jpeg",
-      title: "Enhancing Nutrition Through GMO Policy in Eastern Africa",
-      text: "Evaluation of the potential nutritional benefits of introducing genetically-modified organisms (GMOs) and fortified foods in Eastern African countries, specifically Uganda and Tanzania. By analyzing dietary deficiencies and simulating policy scenarios, the research highlights the inefficiencies in current GMO-banned systems and proposes GMO-positive strategies to maximize nutritional outcomes.",
-      text2: "Simulation analysis suggested that trade could effectively address nutritional deficiencies between neighboring countries. Simulating a trade policy between Uganda and Tanzania led to significant improvements: Uganda’s population meeting protein requirements increased from 58.29% to 87.71%, and Tanzania’s population meeting Vitamin C intake rose from 23.18% to 86.09%",
-      badges: ["Python", "Pandas", "Matplotlib", "NumPy", "Plotly"],
-      buttonText: "Project",
-      buttonDisabled: false,
-      buttonLink: "https://github.com/vishalival/eep153-norman-borlaug",
-      columnClass: "col-lg-4",
-      categories: ["Data visualization", "trade policy simulation", "nutritional analysis", "climate impact assessment", "statistical modeling"]
-  },
+    
    
 ];
 
@@ -282,14 +283,20 @@ const projects = [
         a.style.textDecoration = 'inherit';
         a.style.display = 'inline-block';
         a.style.width = '100%';
-        a.href = project.buttonLink;
+        if (!project.buttonDisabled){
+          a.href = project.buttonLink;
+        }
         a.target = '_blank';
 
         const button = document.createElement('button');
         button.type = 'button';
         button.className = 'w-100 mx-1 btn btn-outline-dark';
         button.textContent = project.buttonText;
-        if (project.buttonDisabled) button.disabled = true;
+        if (project.buttonDisabled){
+            button.disabled = true;
+            button.style.pointerEvents = "none";
+            button.setAttribute('aria-disabled', true);
+        } 
 
         a.appendChild(button);
         cardFooterDiv.appendChild(a);
