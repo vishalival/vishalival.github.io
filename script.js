@@ -117,6 +117,18 @@ document.addEventListener('DOMContentLoaded', () => {
       categories: ["Speech attribute analysis", "Speech-to-text conversion", "Anomaly detection"]
     },
     {
+      imgSrc: "images/fashion_diffusion.png",
+      title: "FashionDiffusion: Fine-tuning Diffusion-Based Image Editing for Fashion",
+      text: "FashionDiffusion explores domain-specialized diffusion-based image editing for fashion, using DeepFashion2 triplets to train garment-aware edits from text instructions.",
+      text2: "By selectively fine-tuning InstructPix2Pix with mask-aware training, the model improves garment realism, edit localization, and texture fidelity for clothing edits over a general-purpose baseline.",
+      badges: ["Python", "PyTorch", "Deep Learning"],
+      buttonText: "Project Page",
+      buttonDisabled: false,
+      buttonLink: "https://dzthai.github.io/FashionEdits_Diffusion/",
+      columnClass: "col-lg-4",
+      categories: ["Deep Learning", "Diffusion", "Computer Vision", "Fashion"]
+    },
+    {
       imgSrc: "images/contrails.jpeg",
       title: "High-Performance Neural Network Development for a Contrail Observation System",
       text: "Developed model for classifying aviation-induced cloud 'contrails,' using NASA GOES-16 satellite imagery. Leveraged state-of-the-art semantic segmentation neural networks built on a ResNet architecture for accurate detection. Optimized model performance and training efficiency by utilizing high-performance computing technologies and parallel processing frameworks, including Dask, to handle large-scale data processing and resource-intensive computations effectively.",
@@ -238,18 +250,6 @@ document.addEventListener('DOMContentLoaded', () => {
       buttonLink: "https://www.youtube.com/watch?v=qK33O-Fko5s",
       columnClass: "col-lg-4",
       categories: ["Software engineering", "Game Design", "OOP"]
-    },
-    {
-      imgSrc: "images/contrails.jpeg",
-      title: "FashionDiffusion: Fine-tuning Diffusion-Based Image Editing for Fashion",
-      text: "FashionDiffusion explores domain-specialized diffusion-based image editing for fashion, using DeepFashion2 triplets to train garment-aware edits from text instructions.",
-      text2: "By selectively fine-tuning InstructPix2Pix with mask-aware training, the model improves garment realism, edit localization, and texture fidelity for clothing edits over a general-purpose baseline.",
-      badges: ["Python", "PyTorch", "Deep Learning"],
-      buttonText: "Project Page",
-      buttonDisabled: false,
-      buttonLink: "https://dzthai.github.io/FashionEdits_Diffusion/",
-      columnClass: "col-lg-4",
-      categories: ["Deep Learning", "Diffusion", "Computer Vision", "Fashion"]
     },
 
 
