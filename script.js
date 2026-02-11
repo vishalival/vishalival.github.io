@@ -125,7 +125,7 @@ document.addEventListener('DOMContentLoaded', () => {
       buttonText: "Project Page",
       buttonDisabled: false,
       buttonLink: "https://dzthai.github.io/FashionEdits_Diffusion/",
-      columnClass: "col-lg-4",
+      columnClass: "col-lg-6",
       categories: ["Deep Learning", "Diffusion", "Computer Vision", "Fashion"]
     },
     {
