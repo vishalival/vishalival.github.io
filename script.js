@@ -113,7 +113,7 @@ document.addEventListener('DOMContentLoaded', () => {
       buttonText: "Publication",
       buttonDisabled: false,
       buttonLink: "https://doi.org/10.2514/6.2024-3942",
-      columnClass: "col-lg-6",
+      columnClass: "col-lg-4",
       categories: ["Speech attribute analysis", "Speech-to-text conversion", "Anomaly detection"]
     },
     {
@@ -125,7 +125,7 @@ document.addEventListener('DOMContentLoaded', () => {
       buttonText: "Project Page",
       buttonDisabled: false,
       buttonLink: "https://dzthai.github.io/FashionEdits_Diffusion/",
-      columnClass: "col-lg-6",
+      columnClass: "col-lg-4",
       categories: ["Deep Learning", "Diffusion", "Computer Vision", "Fashion"]
     },
     {
@@ -137,7 +137,7 @@ document.addEventListener('DOMContentLoaded', () => {
       buttonText: "Project Not Publicly Accessible",
       buttonDisabled: true,
       buttonLink: "",
-      columnClass: "col-lg-6",
+      columnClass: "col-lg-4",
       categories: ["Semantic segmentation", "neural network architecture design", "Geospatial data analysis", "high-performance computing", "parallel processing"]
     },
     {
@@ -149,7 +149,7 @@ document.addEventListener('DOMContentLoaded', () => {
       buttonText: "Project Not Publicly Accessible",
       buttonDisabled: true,
       buttonLink: "",
-      columnClass: "col-lg-6",
+      columnClass: "col-lg-4",
       categories: ["Data parsing", "High-performance computing", "parallel processing", "Statistical modeling", "WebAPI", "Geospatial Data Analysis", "Time series"]
     },
     {
@@ -161,7 +161,7 @@ document.addEventListener('DOMContentLoaded', () => {
       buttonText: "Project",
       buttonDisabled: false,
       buttonLink: "https://drive.google.com/file/d/1q_2bIj93O-sVn6sVTMIN39QJaDJNDA8E/view?usp=sharing",
-      columnClass: "col-lg-6",
+      columnClass: "col-lg-4",
       categories: ["Natural Language Processing (NLP)", "Named Entity Recognition (NER)", "Geospatial data analysis", "Prompt engineering", "Parallel computing"]
     },
     {
