@@ -239,6 +239,18 @@ document.addEventListener('DOMContentLoaded', () => {
       columnClass: "col-lg-4",
       categories: ["Software engineering", "Game Design", "OOP"]
     },
+    {
+      imgSrc: "images/contrails.jpeg",
+      title: "FashionDiffusion: Fine-tuning Diffusion-Based Image Editing for Fashion",
+      text: "FashionDiffusion explores domain-specialized diffusion-based image editing for fashion, using DeepFashion2 triplets to train garment-aware edits from text instructions.",
+      text2: "By selectively fine-tuning InstructPix2Pix with mask-aware training, the model improves garment realism, edit localization, and texture fidelity for clothing edits over a general-purpose baseline.",
+      badges: ["Python", "PyTorch", "Deep Learning"],
+      buttonText: "Project Page",
+      buttonDisabled: false,
+      buttonLink: "https://dzthai.github.io/FashionEdits_Diffusion/",
+      columnClass: "col-lg-4",
+      categories: ["Deep Learning", "Diffusion", "Computer Vision", "Fashion"]
+    },
 
 
 
