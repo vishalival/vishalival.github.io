@@ -1,8 +1,5 @@
 body {
     margin: 0;
-    /* font-family: "Roboto", sans-serif;
-    font-weight: 300;
-    font-style: normal; */
 
     font-family: "Lexend", sans-serif;
     font-weight: 300;
@@ -41,7 +38,6 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: 50% 50%;
-    /* z-index:-1; */
 }
 
 
@@ -91,7 +87,6 @@ body {
     position: relative;
     z-index: 1;
     background-color: transparent;
-    /* background-color: #FAF9F6; */
     top: calc(25vh);
 }
 
@@ -112,7 +107,6 @@ svg:hover {
 .downArrow img:hover {
     cursor: pointer;
     transition: 0.5s linear;
-    /* background-color: #052C65; */
     opacity: 50%;
 }
 
@@ -194,11 +188,6 @@ svg:hover {
     }
 }
 
-body {
-    /* background-color: #F8F9FA; */
-    /* background-color: white; */
-}
-
 .card:hover {
     border: 1px solid black;
     transition: 0.25s linear;
@@ -251,17 +240,6 @@ body {
     -webkit-animation-fill-mode: forwards;
     animation-fill-mode: forwards;
 }
-
-/* .css-typing p:nth-child(2) {
-    width: 14ch;
-    opacity: 0;
-    -webkit-animation: type2 2s steps(40, end);
-    animation: type2 2s steps(40, end);
-    -webkit-animation-delay: 2s;
-    animation-delay: 2s;
-    -webkit-animation-fill-mode: forwards;
-    animation-fill-mode: forwards;
-} */
 
 .css-typing p:nth-child(2) {
     width: 31ch;
@@ -378,7 +356,7 @@ body {
 
 @-webkit-keyframes blink {
     50% {
-        border-color: tranparent;
+        border-color: transparent;
     }
 }
 
@@ -446,11 +424,7 @@ code {
 }
 
 .navbar {
-    /* background-color: transparent; */
-    /* border-bottom: 1px solid black; */
-    /* box-shadow: ; */
     transition: 0.5s linear;
-    /* opacity: 0; */
     visibility: hidden;
     transition: opacity 500ms ease, visibility 500ms ease;
 }
@@ -469,24 +443,156 @@ code {
     height: 100% !important;
     object-fit: cover;
 }
-/* 
- .bttn {
-    border-radius: 5px;
-    padding: 5px 10px;
-    background-color: #F1F1F1;
-    transition: 0.25s linear;
-    border-width: 0;
-} */
 
 .bttn {
     background-color: #e3e1e1;
 }
 
-/* .bttn:hover {
-    background-color: #d7d6d6;
-}  */
-
 .btn-active {
     background-color: #474D5A;
     color: white;
+}
+
+/* ---- Coursework collapse/expand ---- */
+.coursework-header {
+    cursor: pointer;
+    user-select: none;
+}
+
+.coursework-header:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.coursework-toggle {
+    font-size: 1.2em;
+    font-weight: bold;
+    min-width: 1.2em;
+    text-align: center;
+}
+
+.coursework-section {
+    transition: all 0.3s ease;
+}
+
+/* ---- Read More button ---- */
+.read-more-btn {
+    color: #7C238C;
+    font-size: 0.9em;
+    text-decoration: none;
+    cursor: pointer;
+    margin-top: 4px;
+    display: inline-block;
+}
+
+.read-more-btn:hover {
+    text-decoration: underline;
+    color: #5a1a66;
+}
+
+/* ---- Footer ---- */
+.footer-section {
+    background-color: #1a1c21;
+    color: #adb5bd;
+}
+
+.footer-link {
+    color: #adb5bd;
+    transition: color 0.2s ease;
+}
+
+.footer-link:hover {
+    color: #7C238C;
+}
+
+/* ---- Dark Mode ---- */
+body.dark-mode {
+    background-color: #1a1c21;
+    color: #e0e0e0;
+}
+
+body.dark-mode #particles-js {
+    background-color: #1a1c21;
+}
+
+body.dark-mode .project-body {
+    background-color: #1a1c21;
+}
+
+body.dark-mode .navbar {
+    background-color: #2B2D34 !important;
+}
+
+body.dark-mode .navbar-brand,
+body.dark-mode .nav-link span {
+    color: #e0e0e0;
+}
+
+body.dark-mode .card {
+    background-color: #2B2D34;
+    color: #e0e0e0;
+    border-color: #444;
+}
+
+body.dark-mode .card:hover {
+    border-color: #7C238C;
+}
+
+body.dark-mode .card-footer {
+    background-color: #23252b;
+    border-color: #444;
+}
+
+body.dark-mode .btn-outline-dark {
+    color: #e0e0e0;
+    border-color: #e0e0e0;
+}
+
+body.dark-mode .btn-outline-dark:hover {
+    color: #1a1c21;
+    background-color: #e0e0e0;
+}
+
+body.dark-mode .about-body {
+    background-color: #111215;
+}
+
+body.dark-mode .list-group-item {
+    background-color: #2B2D34;
+    color: #e0e0e0;
+    border-color: #444;
+}
+
+body.dark-mode .list-group-item-action:hover {
+    background-color: #3a3d45;
+    color: #e0e0e0;
+}
+
+body.dark-mode .footer-section {
+    background-color: #111215;
+}
+
+body.dark-mode .read-more-btn {
+    color: #b366cc;
+}
+
+body.dark-mode .read-more-btn:hover {
+    color: #d9a3e8;
+}
+
+body.dark-mode hr {
+    border-color: #555;
+}
+
+body.dark-mode .display-1,
+body.dark-mode .display-3,
+body.dark-mode .lead {
+    color: #e0e0e0;
+}
+
+body.dark-mode .navbar-toggler {
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+body.dark-mode .navbar-toggler-icon {
+    filter: invert(1);
 }
