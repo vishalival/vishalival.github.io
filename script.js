@@ -16,11 +16,9 @@ function checkPosition() {
   if (windowY < windowHeight + 100) {
     // Scrolling UP
     nav.style.visibility = "hidden"
-    // nav.classList.toggle("active");
   } else {
     // Scrolling DOWN
     nav.style.visibility = "visible"
-    // nav.classList.toggle("active");
   }
   scrollPos = windowY;
 }
@@ -43,37 +41,49 @@ function debounce(func, wait = 0, immediate = true) {
 window.addEventListener('scroll', debounce(checkPosition));
 
 
+// Coursework collapse/expand toggle
+function toggleCoursework(sectionId, headerEl) {
+  const section = document.getElementById(sectionId);
+  const toggle = headerEl.querySelector('.coursework-toggle');
+  if (section.style.display === 'none') {
+    section.style.display = 'block';
+    toggle.textContent = '\u2212';
+  } else {
+    section.style.display = 'none';
+    toggle.textContent = '+';
+  }
+}
 
+// Dark mode toggle
+document.addEventListener('DOMContentLoaded', () => {
+  const darkModeToggle = document.getElementById('darkModeToggle');
+  const darkModeIcon = document.getElementById('darkModeIcon');
+
+  darkModeToggle.addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
+    const isDark = document.body.classList.contains('dark-mode');
+
+    // Update icon
+    if (isDark) {
+      darkModeIcon.innerHTML = '<path d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8M8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0m0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13m8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5M3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8m10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0m-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0m9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707M4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708"/>';
+    } else {
+      darkModeIcon.innerHTML = '<path d="M6 .278a.77.77 0 0 1 .08.858 7.2 7.2 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277q.792-.001 1.533-.16a.79.79 0 0 1 .81.316.73.73 0 0 1-.031.893A8.35 8.35 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.75.75 0 0 1 6 .278"/>';
+    }
+
+    // Save preference
+    localStorage.setItem('darkMode', isDark ? 'enabled' : 'disabled');
+  });
+
+  // Load saved preference
+  if (localStorage.getItem('darkMode') === 'enabled') {
+    document.body.classList.add('dark-mode');
+    darkModeIcon.innerHTML = '<path d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8M8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0m0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13m8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5M3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8m10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0m-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0m9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707M4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708"/>';
+  }
+});
 
 
 document.addEventListener('DOMContentLoaded', () => {
   const projectBody = document.getElementById('project-body');
-  const filterButtonsContainer = document.getElementById('filter-buttons');
-  const categories = ["All"];
-
-  // categories.forEach(category => {
-  //   const button = document.createElement('button');
-  //   button.textContent = category;
-  //   button.className = category === "All" ? 'btn bttn btn-light mx-1 mb-3' : 'btn bttn btn-light mx-1 mb-3';
-  //   // button.className = 'bttn mx-1 mb-3';
-  //   button.dataset.filter = category;
-  //   filterButtonsContainer.appendChild(button);
-
-  //   if (category == "All") {
-  //     button.classList.add('btn-active');
-  //   }
-
-  //   button.addEventListener('click', () => {
-  //     document.querySelectorAll('.btn-active').forEach(btn => btn.classList.remove('btn-active'));
-  //     button.classList.add('btn-active');
-  //     filterProjects(category);
-  //   });
-
-  //   // filterProjects(category)
-  // });
-
-
-
 
   const badgeColors = {
     "Python": "#6EA4BF",
@@ -100,15 +110,24 @@ document.addEventListener('DOMContentLoaded', () => {
     "GeoPandas": "#A97C73",
     "BioPython": "#5DA271",
     "OpenAI": "#2D3047",
-    "Cohere": "#C3DBC5"
+    "Cohere": "#C3DBC5",
+    "Deep Learning": "#465775",
+    "Scala": "#33CA7F",
+    "Databricks": "#8a06e2",
+    "AWS": "#FF9900",
+    "YOLOv8": "#33CA7F",
+    "DeepSORT": "#06c4e2",
+    "Roboflow": "#8a06e2"
   };
+
+  const TEXT_LIMIT = 150;
 
   const projects = [
     {
       imgSrc: "images/taco.jpeg",
       title: "Controller-Pilot Voice Communication and Intent Monitoring for Future Aviation Systems Safety",
       text: "Large-scale programming project using three models to evaluate safety of aviation systems through (1) speech attribute analysis, (2) natural language processing and speech-to-text, and (3) intent inference analysis. Primary goal is to develop a fully synced model able to detect aviation system safety issues through ATCO audios. ",
-      text2: "Model simulation showing moments of ATCO influence and impact of three different models. Key speech attribute patterns are demonstrated with LiveATC audios, including a bimodal distribution of Spectral Flatness, Onset Rate, and Onset Strength and clear distinguishing patterns across different sectors. An IsolationForest Outlier classification model is developed to classify off-nominal air traffic controllers’ utterances.",
+      text2: "Model simulation showing moments of ATCO influence and impact of three different models. Key speech attribute patterns are demonstrated with LiveATC audios, including a bimodal distribution of Spectral Flatness, Onset Rate, and Onset Strength and clear distinguishing patterns across different sectors. An IsolationForest Outlier classification model is developed to classify off-nominal air traffic controllers' utterances.",
       badges: ["Python", "Pandas", "NumPy", "Matplotlib", "Plotly", "Speech-to-Text (STT)"],
       buttonText: "Publication",
       buttonDisabled: false,
@@ -132,7 +151,7 @@ document.addEventListener('DOMContentLoaded', () => {
       imgSrc: "images/contrails.jpeg",
       title: "High-Performance Neural Network Development for a Contrail Observation System",
       text: "Developed model for classifying aviation-induced cloud 'contrails,' using NASA GOES-16 satellite imagery. Leveraged state-of-the-art semantic segmentation neural networks built on a ResNet architecture for accurate detection. Optimized model performance and training efficiency by utilizing high-performance computing technologies and parallel processing frameworks, including Dask, to handle large-scale data processing and resource-intensive computations effectively.",
-      text2: "Low F1 score and loss, high IOU (Intersection Over Union) score. Model developed a framework for large-scale contrail research funded by the ARPA-E (Advanced Research Projects Agency–Energy).",
+      text2: "Low F1 score and loss, high IOU (Intersection Over Union) score. Model developed a framework for large-scale contrail research funded by the ARPA-E (Advanced Research Projects Agency\u2013Energy).",
       badges: ["Python", "Pandas", "NumPy", "Matplotlib", "Plotly", "Kubernetes", "ResNet", "Dask"],
       buttonText: "Project Not Publicly Accessible",
       buttonDisabled: true,
@@ -144,7 +163,7 @@ document.addEventListener('DOMContentLoaded', () => {
       imgSrc: "images/noise.png",
       title: "Distributed Noise Analytics for Regional Aviation",
       text: "Developed a system for distributed analytics of aviation-induced noise impacts, focusing on AIRNOISE and UNIT data outputs. Leveraged high-performance computing frameworks and advanced processing techniques to handle large-scale noise datasets efficiently. Integrated WebAPI for streamlined access and NASA WorldWind for geospatial visualization, enabling interactive exploration of noise patterns.",
-      text2: "Enhanced data processing and visualization for noise impact assessments. Created a scalable framework for integrating future machine learning-based noise abatement models. Employed the parallel processing capabilities of Dask to optimize CPU usage of NASA models, achieving a 58% reduction in computing time within NASA’s High Performance Computing environment.",
+      text2: "Enhanced data processing and visualization for noise impact assessments. Created a scalable framework for integrating future machine learning-based noise abatement models. Employed the parallel processing capabilities of Dask to optimize CPU usage of NASA models, achieving a 58% reduction in computing time within NASA's High Performance Computing environment.",
       badges: ["Python", "Dask", "Matplotlib", "FASTAPI", "JSON"],
       buttonText: "Project Not Publicly Accessible",
       buttonDisabled: true,
@@ -154,9 +173,9 @@ document.addEventListener('DOMContentLoaded', () => {
     },
     {
       imgSrc: "images/wwf.jpeg",
-      title: "Quantifying World Wildlife Fund’s Global Impacts",
+      title: "Quantifying World Wildlife Fund's Global Impacts",
       text: "Developed a comprehensive data analytics pipeline for the World Wildlife Fund (WWF) to visualize their global impact. The project involved processing over 200 reports in PDF format, utilizing state-of-the-art Natural Language Processing (NLP) techniques to extract location-based information, and creating an interactive map interface.",
-      text2: "Interactive map enabling users to explore WWF’s global projects with detailed summaries, accomplishments, and geospatial representations. The tool improves access to data, allowing stakeholders to visualize and analyze WWF’s contributions worldwide effectively.",
+      text2: "Interactive map enabling users to explore WWF's global projects with detailed summaries, accomplishments, and geospatial representations. The tool improves access to data, allowing stakeholders to visualize and analyze WWF's contributions worldwide effectively.",
       badges: ["Python", "SpaCy", "LangChain", "OpenAI", "Cohere", "NumPy", "GeoPandas", "Dask"],
       buttonText: "Project",
       buttonDisabled: false,
@@ -180,7 +199,7 @@ document.addEventListener('DOMContentLoaded', () => {
       imgSrc: "images/gmo.jpeg",
       title: "Enhancing Nutrition Through GMO Policy in Eastern Africa",
       text: "Evaluation of the potential nutritional benefits of introducing genetically-modified organisms (GMOs) and fortified foods in Eastern African countries, specifically Uganda and Tanzania. By analyzing dietary deficiencies and simulating policy scenarios, the research highlights the inefficiencies in current GMO-banned systems and proposes GMO-positive strategies to maximize nutritional outcomes.",
-      text2: "Simulation analysis suggested that trade could effectively address nutritional deficiencies between neighboring countries. Simulating a trade policy between Uganda and Tanzania led to significant improvements: Uganda’s population meeting protein requirements increased from 58.29% to 87.71%, and Tanzania’s population meeting Vitamin C intake rose from 23.18% to 86.09%",
+      text2: "Simulation analysis suggested that trade could effectively address nutritional deficiencies between neighboring countries. Simulating a trade policy between Uganda and Tanzania led to significant improvements: Uganda's population meeting protein requirements increased from 58.29% to 87.71%, and Tanzania's population meeting Vitamin C intake rose from 23.18% to 86.09%",
       badges: ["Python", "Pandas", "Matplotlib", "NumPy", "Plotly"],
       buttonText: "Project",
       buttonDisabled: false,
@@ -204,7 +223,7 @@ document.addEventListener('DOMContentLoaded', () => {
       imgSrc: "images/trade.jpeg",
       title: "Optimizing Nutritional Outcomes Through Trade and Climate Analysis: Uganda and Tanzania",
       text: "Analyzed food consumption in Uganda and Tanzania to determine whether populations meet key dietary requirements like protein, vitamins, etc. Using this data, simulated trade scenarios to address nutrient deficiencies by exchanging surplus resources between both countries. Additionally examined the impacts of climate change on primary agricultural products in both countries.",
-      text2: "Simulation analysis suggested that trade could effectively address nutritional deficiencies between neighboring countries. Simulating a trade policy between Uganda and Tanzania led to significant improvements: Uganda’s population meeting protein requirements increased from 58.29% to 87.71%, and Tanzania’s population meeting Vitamin C intake rose from 23.18% to 86.09%",
+      text2: "Simulation analysis suggested that trade could effectively address nutritional deficiencies between neighboring countries. Simulating a trade policy between Uganda and Tanzania led to significant improvements: Uganda's population meeting protein requirements increased from 58.29% to 87.71%, and Tanzania's population meeting Vitamin C intake rose from 23.18% to 86.09%",
       badges: ["Python", "Pandas", "Matplotlib", "NumPy", "Plotly"],
       buttonText: "Project",
       buttonDisabled: false,
@@ -217,7 +236,7 @@ document.addEventListener('DOMContentLoaded', () => {
       imgSrc: "images/civeng.jpeg",
       title: "Modules - Civil Engineering 190 Pedagogy",
       text: "Developed 5 different Python notebook walk-through coding assignments for students in Civil Engineering 190, a course on Data and Equity in Environmental Engineering. Notebooks educated students on key Data Science methods exploring the following topics: Google Street View Monitoring, Electrical Vehicle Charging, Coastal Resilience, and Wastewater Monitoring.",
-      text2: "Successfully built Python course modules for different courses, expanding accessibility and reach of data science educational initiatives on UC Berkeley’s campus.",
+      text2: "Successfully built Python course modules for different courses, expanding accessibility and reach of data science educational initiatives on UC Berkeley's campus.",
       badges: ["Python", "Pandas", "NumPy", "GeoPandas", "BioPython"],
       buttonText: "Project",
       buttonDisabled: false,
@@ -272,7 +291,8 @@ document.addEventListener('DOMContentLoaded', () => {
       const img = document.createElement('img');
       img.src = project.imgSrc;
       img.className = 'card-img-top';
-      img.alt = '...';
+      img.alt = project.title;
+      img.loading = 'lazy';
 
       const cardBodyDiv = document.createElement('div');
       cardBodyDiv.className = 'card-body d-flex flex-column';
@@ -281,17 +301,36 @@ document.addEventListener('DOMContentLoaded', () => {
       h5.className = 'card-title';
       h5.textContent = project.title;
 
+      const fullText = project.text + ' ' + project.text2;
+      const shortText = project.text.length > TEXT_LIMIT
+        ? project.text.substring(0, TEXT_LIMIT) + '...'
+        : project.text;
+
       const p = document.createElement('p');
       p.className = 'card-text';
-      p.textContent = project.text;
-
-      const p2 = document.createElement('p');
-      p2.className = 'card-text';
-      p2.textContent = project.text2;
+      p.textContent = shortText;
 
       cardBodyDiv.appendChild(h5);
       cardBodyDiv.appendChild(p);
-      cardBodyDiv.appendChild(p2);
+
+      // Read More / Read Less toggle
+      if (fullText.length > TEXT_LIMIT) {
+        const readMoreBtn = document.createElement('a');
+        readMoreBtn.className = 'read-more-btn';
+        readMoreBtn.textContent = 'Read More';
+        readMoreBtn.href = '#';
+        readMoreBtn.addEventListener('click', (e) => {
+          e.preventDefault();
+          if (readMoreBtn.textContent === 'Read More') {
+            p.textContent = fullText;
+            readMoreBtn.textContent = 'Read Less';
+          } else {
+            p.textContent = shortText;
+            readMoreBtn.textContent = 'Read More';
+          }
+        });
+        cardBodyDiv.appendChild(readMoreBtn);
+      }
 
       const cardFooterDiv = document.createElement('div');
       cardFooterDiv.className = 'card-body d-flex align-items-end justify-content-around';
@@ -325,10 +364,10 @@ document.addEventListener('DOMContentLoaded', () => {
       project.badges.forEach(badge => {
         const span = document.createElement('span');
         span.className = 'badge';
-        span.style.backgroundColor = badgeColors[badge];
+        span.style.backgroundColor = badgeColors[badge] || '#6c757d';
         span.textContent = badge;
-        span.style.marginRight = '5px'; // Adding right margin for spacing
-        span.style.marginBottom = '5px'; // Adding bottom margin for vertical spacing if badges wrap
+        span.style.marginRight = '5px';
+        span.style.marginBottom = '5px';
         cardFooter.appendChild(span);
       });
 
@@ -339,22 +378,6 @@ document.addEventListener('DOMContentLoaded', () => {
       colDiv.appendChild(cardDiv);
       projectBody.appendChild(colDiv);
     });
-  }
-
-
-  function filterProjects(filter) {
-    if (filter === "All") {
-      displayProjects(projects);
-      return;
-    }
-    else {
-
-      const filteredProjects = projects.filter(project =>
-        project.categories.includes(filter)
-      );
-      displayProjects(filteredProjects);
-    }
-
   }
 
 });
